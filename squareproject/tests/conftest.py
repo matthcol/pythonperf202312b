@@ -151,10 +151,18 @@ def square_ko_notSquare3d():
     return np.array([[[1,2], [3,4]],[[5,6], [7,8]]])
 
 @pytest.fixture
-def square_ko_outOfRange():
+def square_ko_outOfRangeAbove():
     return np.array(
             [[8,1,6],
-            [-1,5,13], 
+            [7,5,13], 
+            [4,9,2]]
+    )
+    
+@pytest.fixture
+def square_ko_outOfRangeUnder():
+    return np.array(
+            [[8,1,6],
+            [-1,5,7], 
             [4,9,2]]
     )
 
