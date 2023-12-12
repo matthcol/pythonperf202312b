@@ -35,7 +35,7 @@ def square_ko_3_diag() -> npt.NDArray[np.integer]:
     ])
 
 @pytest.fixture
-def square_ok_4() -> npt.NDArray[np.integer]: 
+def square_ok_5() -> npt.NDArray[np.integer]: 
     return np.array([[1,	24,	3,	25,	12],
 		[16,	7,	21,	6,	15],
 		[23,	14,	18,	8,	2],
@@ -110,7 +110,7 @@ def square_ok_8_willem_barink():
     )
 
 @pytest.fixture
-def square_ok_12_willem_barink_12():
+def square_ok_12_willem_barink():
     return np.array( 
             [[138,	8,	17,	127,	114,	32,	41,	103,	90,	56,	65,	79],
             [19,	125,	140,	6,	43,	101,	116,	30,	67,	77,	92,	54],
