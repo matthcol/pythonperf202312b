@@ -49,7 +49,8 @@ def test_areAllPresent_ok(squareName, maxValue, request):
     assert areAllPresent(square, maxValue)
     
 @pytest.mark.parametrize(["squareName", "maxValue"], [
-    ("square_ko_4_josep_maria_subirachs", 16),
+    ("square_ko_4_josep_maria_subirachs", 16), # good range, repeated values
+    ("square_ko_outOfRange", 9), # out of range values
 ])
 def test_areAllPresent_ko(squareName, maxValue, request):
     square = request.getfixturevalue(squareName)

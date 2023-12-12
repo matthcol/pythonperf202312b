@@ -14,7 +14,7 @@ def areMagicSums(sums: npt.NDArray[np.integer], ms: int) -> bool:
     Returns:
         bool: sums are all magic
     """
-    return False
+    return (sums == ms).all()
 
 def isMagicForRows(square: npt.NDArray[np.integer], ms: int) -> bool:
     """verify square is magic for all its rows according to magic sum ms

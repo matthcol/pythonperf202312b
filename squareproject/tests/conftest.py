@@ -125,3 +125,22 @@ def square_ok_12_willem_barink():
             [132,	14,	11,	133,	108,	38,	35,	109,	84,	62,	59,	85],
             [1,	143,	122,	24,	25,	119,	98,	48,	49,	95,	74,	72]]
     )
+    
+@pytest.fixture
+def square_ko_notSquare1d():
+    return np.array([1,2])
+
+@pytest.fixture
+def square_ko_notSquare3d():
+    return np.array([[[1,2], [3,4]],[[5,6], [7,8]]])
+
+@pytest.fixture
+def square_ko_outOfRange():
+    return np.array(
+            [[8,1,6],
+            [-1,5,13], 
+            [4,9,2]]
+    )
+
+
+    
