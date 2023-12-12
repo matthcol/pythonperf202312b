@@ -26,7 +26,8 @@ def isMagicForRows(square: npt.NDArray[np.integer], ms: int) -> bool:
     Returns:
         bool: whether the square is magic or not for its rows
     """
-    return False
+    sumRows = square.sum(axis=1)
+    return areMagicSums(sumRows, ms)
 
 def isMagicForColumns(square: npt.NDArray[np.integer], ms: int) -> bool:
     """verify square is magic for all its colums according to magic sum ms
@@ -38,7 +39,8 @@ def isMagicForColumns(square: npt.NDArray[np.integer], ms: int) -> bool:
     Returns:
         bool: whether the square is magic or not for its columns
     """
-    return False
+    sumColumns = square.sum(axis=0)
+    return areMagicSums(sumColumns, ms)
 
 def isMagicForDiagonals(square: npt.NDArray[np.integer], ms: int) -> bool:
     """verify square is magic for all its diagonals according to magic sum ms
@@ -52,7 +54,8 @@ def isMagicForDiagonals(square: npt.NDArray[np.integer], ms: int) -> bool:
     Returns:
         bool: whether the square is magic or not for its diagonals
     """
-    return False
+    trace1 = np.trace(square)
+    return areMagicSums(trace1, ms)
 
 def areAllPresent(square: npt.NDArray[np.integer], maxValue: int) -> bool:
     """verify that all numbers from 1 to maxValue are all used once

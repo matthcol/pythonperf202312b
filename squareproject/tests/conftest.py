@@ -33,6 +33,22 @@ def square_ko_3_diag() -> npt.NDArray[np.integer]:
         [4,9,2],
         [3,5,7]
     ])
+    
+@pytest.fixture
+def square_ko_3_diag_one() -> npt.NDArray[np.integer]: 
+    return np.array(
+         [[8,1,6],
+        [3,5,7], 
+        [4,9,3]]
+    )
+    
+@pytest.fixture
+def square_ko_3_diag_two() -> npt.NDArray[np.integer]: 
+    return np.array(
+            [[8,1,5],
+            [3,5,7], 
+            [4,9,2]]    
+    )
 
 @pytest.fixture
 def square_ok_5() -> npt.NDArray[np.integer]: 

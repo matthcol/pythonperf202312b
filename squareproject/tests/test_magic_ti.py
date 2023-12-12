@@ -66,6 +66,8 @@ def test_isMagicForDiagonals_ok(squareName, ms, request):
 @pytest.mark.parametrize(["squareName","ms"], [
     
     ("square_ko_3_diag", MS_3),
+    ("square_ko_3_diag_one", MS_3),
+    ("square_ko_3_diag_two", MS_3),
 ])
 def test_isMagicForDiagonals_ko(squareName, ms, request):
     square = request.getfixturevalue(squareName)
