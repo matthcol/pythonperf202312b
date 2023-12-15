@@ -1,5 +1,6 @@
 import numpy as np
 import numpy.typing as npt
+from typing import cast
 
 def magicSum(n: int) -> int:
     return n * (n**2 + 1) // 2
@@ -55,7 +56,9 @@ def isMagicForDiagonals(square: npt.NDArray[np.integer], ms: int) -> bool:
         bool: whether the square is magic or not for its diagonals
     """
     trace1 = np.trace(square)
-    return areMagicSums(trace1, ms)
+    trace2 = np.trace(square[::-1])
+    # return areMagicSums(np.array([trace1, trace2]), ms)
+    return (trace1 == ms) and (trace2 == ms)
 
 def areAllPresent(square: npt.NDArray[np.integer], maxValue: int) -> bool:
     """verify that all numbers from 1 to maxValue are all used once
@@ -67,8 +70,10 @@ def areAllPresent(square: npt.NDArray[np.integer], maxValue: int) -> bool:
     Returns:
         bool: whether values are all used (once)
     """
-    return False
-
+    uniqueValues = np.unique(square)
+    expectedValues = np.arange(1, maxValue+1)
+    return (len(uniqueValues) == len(expectedValues)) \
+        and  cast(bool, np.equal(uniqueValues, expectedValues).all())
 
 def isMagic(square: npt.NDArray[np.integer]) -> bool:
     """verify square is magic with following rules:
@@ -80,4 +85,9 @@ def isMagic(square: npt.NDArray[np.integer]) -> bool:
     Returns:
         bool: magicness of square
     """
-    return False
+    n = len(square)
+    ms = magicSum(n)
+    return areAllPresent(square, n**2) \
+        and isMagicForRows(square, ms) \
+        and isMagicForColumns(square, ms) \
+        and isMagicForDiagonals(square, ms)
